@@ -1,0 +1,16 @@
+.ActiveQuiz {
+    padding: 20px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin: 0 10px;
+    box-sizing: border-box;
+    font-family: Comic Sans MS;
+}
+.ActiveQuiz span{
+    width: 90%;
+}
+.Question{
+    display: flex;
+    justify-content: space-between;
+}

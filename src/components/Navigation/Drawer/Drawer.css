@@ -1,0 +1,48 @@
+.Drawer{
+    position: fixed;
+    left: 0;
+    top:0;
+    bottom: 0;
+    width:80%;
+    max-width: 300px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    background: #67FA80;
+    transform: translateX(0px);
+    transition: transform .22s ease-in;
+    z-index:90;
+
+}
+
+.Drawer.close {
+    transform: translateX(-300px);
+}
+.Drawer ul{
+    padding-inline-start: 25px;
+    list-style: none;
+    margin-top: 20px;
+    padding:0;
+
+}
+
+.Drawer ul li{
+    list-style:none;
+    margin-bottom: 20px;
+}
+.Drawer ul li a{
+    color: #193205;
+    font-family: "Segoe Script";
+    font-size:26px;
+    text-decoration: none;
+    background-color: #67FA80;
+    position:relative;
+    padding: 0 15px 10px 15px;
+    transition:opacity .3s;
+}
+.Drawer ul li a:hover, .active{
+    opacity: .7;
+}
+.Drawer i{
+
+    color:#017c46
+}

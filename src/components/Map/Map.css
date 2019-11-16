@@ -1,0 +1,21 @@
+.My_map {
+    font-family: sans-serif;
+    text-align: center;
+    border-radius: 5px;
+}
+.My_map h1{
+    font-family: "Comic Sans MS";
+
+}
+.My_map strong{
+    font-size: 36px;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    color: #FFF8BA;
+}
+.My_map h3{
+    margin: 0px;
+    font-family: "Comic Sans MS";
+
+    color: #ffffff;
+}
