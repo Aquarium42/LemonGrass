@@ -5,7 +5,20 @@ import POINTS from "./points";
 
 const mapState = {
     center: [55.75, 37.57],
-    zoom: 6
+    zoom: 6,
+};
+
+const getPointData = index => {
+    return {
+        balloonContentBody: "placemark <strong>balloon " + index + "</strong>",
+        clusterCaption: "placemark <strong>" + index + "</strong>"
+    };
+};
+
+const getPointOptions = () => {
+    return {
+        preset: 'islands#orangeStarIcon'
+    };
 };
 
 class My_map extends React.Component {
@@ -14,30 +27,47 @@ class My_map extends React.Component {
     };
 
     onPlacemarkClick = point => () => {
+
         this.setState({ selectedPoint: point });
+
     };
 
+    onClusterClick = point => () => {
+
+        console.log("click")
+
+    };
 
     render() {
         const { selectedPoint } = this.state;
+        console.log("Write")
+        console.log(selectedPoint)
         return (
             <div  className={classes.My_map} >
                 <YMaps  >
-                    <Map width ={"900px"} height ={"500px"} defaultState={mapState}>
+                    <Map width ={"900px"} height ={"500px"} state={mapState}>
                         <Clusterer
+                            onClick={this.onClusterClick()}
                             options={{
-                                preset: "islands#invertedVioletClusterIcons",
-                                groupByCoordinates: false
+                                preset: "islands#invertedYellowClusterIcons",
+                                groupByCoordinates: false,
+                                clusterHideIconOnBalloonOpen:  true,
+                                geoObjectHideIconOnBalloonOpen: true
                             }}
                         >
-                            {POINTS.map((point, index) => (
+                            {POINTS.map((point, idx) => (
                                 <Placemark
-                                    key={index}
-                                    geometry={point.coords}
+                                    key={idx}
+                                    geometry={ point.coords }
                                     onClick={this.onPlacemarkClick(point)}
+                                    modules={["geoObject.addon.balloon"]}
+                                    properties={getPointData(idx)}
+                                    options={getPointOptions()}
+
                                 />
                             ))}
                         </Clusterer>
+
                     </Map>
                 </YMaps>
                 {selectedPoint && (
